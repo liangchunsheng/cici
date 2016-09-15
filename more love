@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>html5</title>
+    <style type="text/css">
+        
+        
+    </style>
+</head>
+<body>
+    <div >
+        <form id="form01">
+            <input type="text" name="text1" /><br/>
+            <input type="submit"/><br/>
+        </form>
+        <input type="text" form="form01" name="text2" /><br/>
+
+        <form id="form02">
+            <input type="radio" name="gender" id="male" value="1" />male
+            <input type="radio" name="gender" id="female" value="0"/>female<br/>
+            <input type="submit"/><br/>
+        </form>
+    </div>
+    <script>
+        function $(id){
+            return document.getElementById(id);
+        }
+        function initial(){
+            male=$("male");
+            female=$("female");
+            male.addEventListener("change",genter_change,false);
+            female.addEventListener("change",genter_change,false);
+            male.setCustomValidity("请选择一个性别");
+        }
+
+        function genter_change(e){
+            //var tar=e.target;  //获取真正的目标元素
+            //console.log(tar);
+            male.setCustomValidity("");
+        }
+        window.addEventListener("load",initial,false);
+    </script>
+</body>
